@@ -14,10 +14,10 @@ function joinFirepadForHash() {
 
   var userId = firepadRef.push().name(); // Just a random ID.
   var editor = ace.edit('firepad');
-		editor.setTheme("ace/theme/textmate");
-		editor.getSession().setMode("ace/mode/space");
-		var firepad = Firepad.fromACE(firepadRef, editor,
-		{});
+	editor.setTheme("ace/theme/textmate");
+	editor.getSession().setMode("ace/mode/space");
+	var firepad = Firepad.fromACE(firepadRef, editor,
+	{});
   //codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true });
   //firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
       //{ richTextToolbar: true, richTextShortcuts: true, userId: userId});
