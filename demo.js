@@ -13,9 +13,14 @@ function joinFirepadForHash() {
   var firepadRef = new Firebase('https://firepad.firebaseio.com/demo').child(id);
 
   var userId = firepadRef.push().name(); // Just a random ID.
-  codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true });
-  firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
-      { richTextToolbar: true, richTextShortcuts: true, userId: userId});
+  var editor = ace.edit('firepad');
+		editor.setTheme("ace/theme/textmate");
+		editor.getSession().setMode("ace/mode/space");
+		var firepad = Firepad.fromACE(firepadRef, editor,
+		{});
+  //codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true });
+  //firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
+      //{ richTextToolbar: true, richTextShortcuts: true, userId: userId});
   userList = FirepadUserList.fromDiv(firepadRef.child('users'),
       document.getElementById('firepad-userlist'), userId);
 
@@ -28,7 +33,7 @@ function joinFirepadForHash() {
     buildPadList();
   });
 
-  codeMirror.focus();
+  editor.focus();
 
   window.location = url;
   $('#url').val(url);
