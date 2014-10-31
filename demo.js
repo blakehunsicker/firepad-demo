@@ -11,7 +11,7 @@ function joinFirepadForHash() {
   var id = window.location.hash.replace(/#/g, '') || randomString(10);
   var url = window.location.toString().replace(/#.*/, '') + '#' + id;
   // Input your firebase account number below.
-  var firepadRef = new Firebase('https://firepad.firebaseio.com/demo').child(id);
+  var firepadRef = new Firebase('https://astrotryout.firebaseioIO.com/').child(id);
 
   var userId = firepadRef.push().name(); // Just a random ID.
   var editor = ace.edit('firepad');
